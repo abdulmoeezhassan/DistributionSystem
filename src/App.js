@@ -1,10 +1,15 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AnalyticalReports from './components/analyticalReports/analyticalReports';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 function App() {
   return (
     <div className="App">
-     <AnalyticalReports/>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/AnalyticalReports' Component={AnalyticalReports} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
