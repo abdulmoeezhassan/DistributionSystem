@@ -1,0 +1,70 @@
+/* styles.css */
+
+/* Navbar background color */
+.bg-body-tertiary {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  overflow: hidden;
+  height: 20vh;
+  background: #000;
+}
+
+/* Navbar Brand styling */
+.navbar-brand {
+  color: rgb(197, 56, 56); /* Change the text color for the brand */
+  font-weight: bold;
+}
+
+/* Navbar links styling */
+.navbar-nav .nav-link {
+  color: rgb(224, 65, 65); /* Change the text color for the links */
+  margin-right: 15px; /* Adjust the right margin between links */
+}
+
+/* Navbar links styling on hover and active state */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link.active {
+  color: #ffcc00; /* Change the text color on hover, focus, or when active */
+}
+
+/* Navbar Toggle button styling */
+.navbar-toggler-icon {
+  background-color: rgb(248, 245, 245); /* Change the color of the toggle button */
+}
+
+/* Navbar Dropdown styling */
+.navbar-nav .nav-item .nav-link.dropdown-toggle {
+  color: rgb(145, 28, 28); /* Change the text color for the dropdown toggle */
+}
+
+/* Navbar Dropdown items styling */
+.navbar-nav .nav-item .dropdown-menu {
+  background-color: #333; /* Change the background color of the dropdown menu */
+}
+
+/* Navbar Dropdown items styling on hover */
+.navbar-nav .nav-item .dropdown-item:hover {
+  background-color: #555; /* Change the background color on hover */
+  color: #ffcc00; /* Change the text color on hover */
+}
+.navbar{
+  background-color: transparent !important; /* Use !important to override Bootstrap styles */
+  position: relative;
+  left: -750px;
+  background: #000;
+}
+.title{
+margin-right: 25px;
+}
+.care{
+margin-left: 130px;
+}
+.nav-bar{
+  height: 8vh;
+  display: flex;
+  position: relative;
+  right: 20px;
+  background: #e2aaaa;
+}
