@@ -88,12 +88,160 @@ pool.connect()
       "is_deleted" boolean DEFAULT false
     )
   `;
+  const createPurchaseInvoiceTableQuery= `
+  CREATE TABLE IF NOT EXISTS Purchase_Invoice(
+    id SERIAL PRIMARY KEY,
+    Document_No VARCHAR(500),
+    DATE VARCHAR(200),
+    BASE VARCHAR(200),
+    BASE_REF_NO VARCHAR(200),
+    Customer VARCHAR(300),
+    Net_Amount VARCHAR(300),
+    Entry_User VARCHAR(300),
+    Entry_Date VARCHAR(300),
+    Status VARCHAR(100),
+    "is_deleted" boolean DEFAULT false
+  )
+`;
+const createPurchaseOrderTableQuery= `
+CREATE TABLE IF NOT EXISTS Purchase_Order(
+  id SERIAL PRIMARY KEY,
+  Document_No VARCHAR(500),
+  DATE VARCHAR(200),
+  BASE VARCHAR(200),
+  BASE_REF_NO VARCHAR(200),
+  Customer VARCHAR(300),
+  Net_Amount VARCHAR(300),
+  Entry_User VARCHAR(300),
+  Entry_Date VARCHAR(300),
+  Status VARCHAR(100),
+  "is_deleted" boolean DEFAULT false
+)
+`;
+const createPurchaseReturnTableQuery= `
+CREATE TABLE IF NOT EXISTS Purchase_Return(
+  id SERIAL PRIMARY KEY,
+  Document_No VARCHAR(500),
+  DATE VARCHAR(200),
+  BASE VARCHAR(200),
+  BASE_REF_NO VARCHAR(200),
+  Customer VARCHAR(300),
+  Net_Amount VARCHAR(300),
+  Entry_User VARCHAR(300),
+  Entry_Date VARCHAR(300),
+  Status VARCHAR(100),
+  "is_deleted" boolean DEFAULT false
+)
+`;
+const createJournalVoucherTableQuery= `
+CREATE TABLE IF NOT EXISTS Journal_Voucher(
+  id SERIAL PRIMARY KEY,
+  Document_No VARCHAR(500),
+  DATE VARCHAR(200),
+  Title VARCHAR(200),
+  Type VARCHAR(200),
+  Currency VARCHAR(200),
+  Total_Amount VARCHAR(200),
+  Entry_User VARCHAR(300),
+  Entry_Date VARCHAR(300),
+  "is_deleted" boolean DEFAULT false
+)
+`;
+const createBankPayementTableQuery= `
+CREATE TABLE IF NOT EXISTS Bank_Payment(
+  id SERIAL PRIMARY KEY,
+  Document_No VARCHAR(500),
+  DATE VARCHAR(200),
+  BASE VARCHAR(200),
+  BASE_REF_NO VARCHAR(200),
+  Customer VARCHAR(300),
+  Net_Amount VARCHAR(300),
+  Entry_User VARCHAR(300),
+  Entry_Date VARCHAR(300),
+  Status VARCHAR(100),
+  "is_deleted" boolean DEFAULT false
+)
+`;
+const createCashPayementTableQuery= `
+CREATE TABLE IF NOT EXISTS Cash_Payment(
+  id SERIAL PRIMARY KEY,
+  Document_No VARCHAR(500),
+  DATE VARCHAR(200),
+  BASE VARCHAR(200),
+  BASE_REF_NO VARCHAR(200),
+  Customer VARCHAR(300),
+  Net_Amount VARCHAR(300),
+  Entry_User VARCHAR(300),
+  Entry_Date VARCHAR(300),
+  Status VARCHAR(100),
+  "is_deleted" boolean DEFAULT false
+)
+`;
+const createBankReceiptTableQuery= `
+CREATE TABLE IF NOT EXISTS Bank_Recipt(
+  id SERIAL PRIMARY KEY,
+  Document_No VARCHAR(500),
+  DATE VARCHAR(200),
+  BASE VARCHAR(200),
+  BASE_REF_NO VARCHAR(200),
+  Customer VARCHAR(300),
+  Net_Amount VARCHAR(300),
+  Entry_User VARCHAR(300),
+  Entry_Date VARCHAR(300),
+  Status VARCHAR(100),
+  "is_deleted" boolean DEFAULT false
+)
+`;
+const createCashReceiptTableQuery= `
+CREATE TABLE IF NOT EXISTS Cash_Recipt(
+  id SERIAL PRIMARY KEY,
+  Document_No VARCHAR(500),
+  DATE VARCHAR(200),
+  BASE VARCHAR(200),
+  BASE_REF_NO VARCHAR(200),
+  Customer VARCHAR(300),
+  Net_Amount VARCHAR(300),
+  Entry_User VARCHAR(300),
+  Entry_Date VARCHAR(300),
+  Status VARCHAR(100),
+  "is_deleted" boolean DEFAULT false
+)
+`;
+const unpostedvoucher=`CREATE TABLE IF NOT EXISTS un_posted_voucher(
+  id SERIAL PRIMARY KEY,
+  Document_No VARCHAR (500),
+  Date VARCHAR(500),
+  type VARCHAR(500),
+  title VARCHAR(500),
+  Amount VARCHAR(500),
+  "is_deleted" boolean DEFAULT false
+)`
+const unreconciledvoucher=`CREATE TABLE IF NOT EXISTS un_reconciled_voucher(
+  id SERIAL PRIMARY KEY,
+  Document_No VARCHAR (500),
+  Date VARCHAR(500),
+  type VARCHAR(500),
+  title VARCHAR(500),
+  Amount VARCHAR(500),
+  "is_deleted" boolean DEFAULT false
+)`
     return Promise.all([
       pool.query(createSalesInvoiceTableQuery),
       pool.query(createSalesReturnInvoiceTableQuery),
       pool.query(createSalesEstimateInvoiceTableQuery),
       pool.query(createSalesQuotationInvoiceTableQuery),
-      pool.query(createSalesOrderInvoiceTableQuery)
+      pool.query(createSalesOrderInvoiceTableQuery),
+      pool.query(createPurchaseInvoiceTableQuery),
+      pool.query(createPurchaseOrderTableQuery),
+      pool.query(createPurchaseReturnTableQuery),
+      pool.query(createJournalVoucherTableQuery),
+      pool.query(createBankPayementTableQuery),
+      pool.query(createCashPayementTableQuery),
+      pool.query(createBankReceiptTableQuery),
+      pool.query(createCashReceiptTableQuery),
+      pool.query(unpostedvoucher),
+      pool.query(unreconciledvoucher)
+
     ]);
   })
   .then(() => {

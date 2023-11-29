@@ -30,7 +30,7 @@
   }
   .my-sidebar-container {
     width: 250px; /* Set the desired width */
-    overflow: hidden; /* Hide the content that exceeds the width */
+    overflow: x; /* Hide the content that exceeds the width */
     height: 100vh;
   }
 .analy{
