@@ -8,7 +8,11 @@ import "./index.css";
 function App() {
   return (
     <div className="App">
+
+
       <BrowserRouter>
+        <MySidebar />
+
         <Routes>
           <Route path='/' element={<div>
             <MySidebar />
@@ -17,7 +21,6 @@ function App() {
             path='/AnalyticalReports'
             element={
               <div className="app-container">
-                <MySidebar />
                 <AnalyticalReports />
               </div>
             }
