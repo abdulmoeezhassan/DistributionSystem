@@ -11,7 +11,6 @@ function App() {
 
 
       <BrowserRouter>
-        <MySidebar />
 
         <Routes>
           <Route path='/' element={<div>
@@ -21,6 +20,7 @@ function App() {
             path='/AnalyticalReports'
             element={
               <div className="app-container">
+                <MySidebar />
                 <AnalyticalReports />
               </div>
             }

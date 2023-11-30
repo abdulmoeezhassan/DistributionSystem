@@ -52,6 +52,38 @@ const unPostedVoucher=require('./routes/voucherManagement/unPostedVoucher.js');
 //Un Reconciled Voucher...
 
 const reConciledVoucher=require('./routes/voucherManagement/UnReconicledVocher.js');
+
+//Customer Data
+
+const Customer=require('./routes/customermanagement/customer.js');
+
+//CustomerType
+
+const CustomerType=require('./routes/customermanagement/customerType.js');
+
+//CustomerArea
+
+const CustomerArea=require('./routes/customermanagement/customerArea.js');
+
+//Supplier
+
+const Supplier=require('./routes/supppliermanagement/supplier.js');
+
+//Supplier Type
+
+const SupplierType=require('./routes/supppliermanagement/supplierType.js');
+
+//Product
+
+const Product=require('./routes/Productmanagement/product.js');
+
+//Type....
+
+const Type=require('./routes/Productmanagement/product.js');
+
+//Category.......
+
+const Category=require('./routes/Productmanagement/category.js');
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Sales Invoice...
@@ -95,6 +127,38 @@ app.use('/UnPostedvoucher',unPostedVoucher);
 
 //Un Reconciled Voucher...
 app.use('/UnReconciledVoucher',reConciledVoucher);
+
+//Customer
+
+app.use('/CustomerInfo',Customer);
+
+//CustomerType
+
+app.use('/CustomerType',CustomerType);
+
+//customerArea
+
+app.use('/CustomerArea',CustomerArea);
+
+//Supplier
+
+app.use('/Supplier',Supplier);
+
+//supplierType
+
+app.use('/SupplierType',SupplierType);
+
+//Product..
+
+app.use('/ProductInfo',Product);
+
+//Type......
+
+app.use('/Type',Type);
+
+//Category.....
+
+app.use('/Category',Category);
 //Server...
 
 app.listen(PORT,()=>{
