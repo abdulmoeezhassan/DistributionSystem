@@ -225,7 +225,94 @@ const unreconciledvoucher=`CREATE TABLE IF NOT EXISTS un_reconciled_voucher(
   Amount VARCHAR(500),
   "is_deleted" boolean DEFAULT false
 )`
-    return Promise.all([
+const Customervoucher=`CREATE TABLE IF NOT EXISTS Customer(
+  id SERIAL PRIMARY KEY,
+  Number VARCHAR (500),
+  Area VARCHAR(500),
+  type VARCHAR(500),
+  Name VARCHAR(500),
+  Phone VARCHAR(500),
+  City VARCHAR(500),
+  Entry_Date VARCHAR(300),
+  "is_deleted" boolean DEFAULT false
+)`
+const CustomerType=`CREATE TABLE IF NOT EXISTS CustomerType(
+  id SERIAL PRIMARY KEY,
+  Description VARCHAR(500),
+  Entry_Date VARCHAR(300),
+  "is_deleted" boolean DEFAULT false
+)`
+const CustomerArea=`CREATE TABLE IF NOT EXISTS CustomerArea(
+  id SERIAL PRIMARY KEY,
+  Description VARCHAR(500),
+  Entry_Date VARCHAR(300),
+  "is_deleted" boolean DEFAULT false
+)`  
+const SalesArea=`CREATE TABLE IF NOT EXISTS SalesArea(
+  id SERIAL PRIMARY KEY,
+  Description VARCHAR(500),
+  Entry_Date VARCHAR(300),
+  "is_deleted" boolean DEFAULT false
+)`  
+const SupplierInfo=`CREATE TABLE IF NOT EXISTS SupplierInfo(
+  id SERIAL PRIMARY KEY,
+  Number VARCHAR (500),
+  type VARCHAR(500),
+  Name VARCHAR(500),
+  Phone VARCHAR(500),
+  City VARCHAR(500),
+  Entry_Date VARCHAR(300),
+  "is_deleted" boolean DEFAULT false
+)`  
+const SupplierType=`CREATE TABLE IF NOT EXISTS SupplierType(
+  id SERIAL PRIMARY KEY,
+  Description VARCHAR(500),
+  Entry_Date VARCHAR(500),
+  "is_deleted" boolean DEFAULT false
+)`  
+const ProductInfo=`CREATE TABLE IF NOT EXISTS ProductInfo(
+  id SERIAL PRIMARY KEY,
+  Number VARCHAR(500),
+  Name VARCHAR(500),
+  Type VARCHAR(500),
+  Category VARCHAR(500),
+  is_service VARCHAR(500),
+  SalePrice_tp VARCHAR(500),
+  Purchase_Price VARCHAR(500),
+  Entry_Date VARCHAR(500),
+  "is_deleted" boolean DEFAULT false
+)`  
+const Type=`CREATE TABLE IF NOT EXISTS Type(
+  id SERIAL PRIMARY KEY,
+  Description VARCHAR(500),
+  Entry_Date VARCHAR(500),
+  "is_deleted" boolean DEFAULT false
+)`  
+const Category=`CREATE TABLE IF NOT EXISTS Category(
+  id SERIAL PRIMARY KEY,
+  Description VARCHAR(500),
+  Entry_Date VARCHAR(500),
+  "is_deleted" boolean DEFAULT false
+)`  
+const Packing=`CREATE TABLE IF NOT EXISTS Packing(
+  id SERIAL PRIMARY KEY,
+  Description VARCHAR(500),
+  Entry_Date VARCHAR(500),
+  "is_deleted" boolean DEFAULT false
+)`  
+const Brand=`CREATE TABLE IF NOT EXISTS Brand(
+  id SERIAL PRIMARY KEY,
+  Description VARCHAR(500),
+  Entry_Date VARCHAR(500),
+  "is_deleted" boolean DEFAULT false
+)`  
+const Manufacturer=`CREATE TABLE IF NOT EXISTS Manufacturer(
+  id SERIAL PRIMARY KEY,
+  Description VARCHAR(500),
+  Entry_Date VARCHAR(500),
+  "is_deleted" boolean DEFAULT false
+)`  
+return Promise.all([
       pool.query(createSalesInvoiceTableQuery),
       pool.query(createSalesReturnInvoiceTableQuery),
       pool.query(createSalesEstimateInvoiceTableQuery),
@@ -240,8 +327,19 @@ const unreconciledvoucher=`CREATE TABLE IF NOT EXISTS un_reconciled_voucher(
       pool.query(createBankReceiptTableQuery),
       pool.query(createCashReceiptTableQuery),
       pool.query(unpostedvoucher),
-      pool.query(unreconciledvoucher)
-
+      pool.query(unreconciledvoucher),
+      pool.query(Customervoucher),
+      pool.query(CustomerType),
+      pool.query(CustomerArea),
+      pool.query(SalesArea),
+      pool.query(SupplierInfo),
+      pool.query(SupplierType),
+      pool.query(ProductInfo),
+      pool.query(Type),
+      pool.query(Category),
+      pool.query(Packing),
+      pool.query(Brand),
+      pool.query(Manufacturer)
     ]);
   })
   .then(() => {
