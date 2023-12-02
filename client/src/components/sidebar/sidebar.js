@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGem, faList} from '@fortawesome/free-solid-svg-icons';
+import { faGem, faList } from '@fortawesome/free-solid-svg-icons';
 import './sidebar.css';
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import { Link } from 'react-router-dom';
@@ -27,18 +27,27 @@ function MySidebar() {
                     <Menu iconShape="square">
                         <MenuItem icon={<FontAwesomeIcon icon={faGem} />}>Dashboard</MenuItem>
                         <Link to="/AnalyticalReports" className='analy'>
-                        <MenuItem >Analytical Reports</MenuItem>
+                            <MenuItem >Analytical Reports</MenuItem>
                         </Link>
                         <SubMenu label="Sales Management">
                             <Link to="/SaleInvoice" className='analy'> <MenuItem>Sales Invoice</MenuItem></Link>
-                            <MenuItem>Sales Return</MenuItem>
-                            <MenuItem>Sales Estimate</MenuItem>
-                            <MenuItem>Sales Order</MenuItem>
+                            <Link to='/SalesReturn' className='analy'>
+                                <MenuItem>Sales Return</MenuItem></Link>
+                            <Link to="/SalesEstimate" className='analy'>
+                                <MenuItem>Sales Estimate</MenuItem>
+                            </Link>
+                            <Link to='/SalesOrder' className='analy'>
+                                <MenuItem>Sales Order</MenuItem></Link>
+                            <Link to='/SalesQuotation' className='analy'>
+                                <MenuItem>Sales Quotation</MenuItem></Link>
                         </SubMenu>
                         <SubMenu label="Purchase Management">
-                            <MenuItem>Purchase Invoice</MenuItem>
-                            <MenuItem>Purchase Return</MenuItem>
-                            <MenuItem>Purchase Order</MenuItem>
+                            <Link to="/PurchaseInvoice" className='analy'>
+                            <MenuItem>Purchase Invoice</MenuItem></Link>
+                            <Link to="/PurchaseReturn" className='analy'>
+                            <MenuItem>Purchase Return</MenuItem></Link>
+                            <Link to="/PurchaseOrder" className='analy'>
+                            <MenuItem>Purchase Order</MenuItem></Link>
                         </SubMenu>
                         <SubMenu label="Voucher Management" >
                             <MenuItem>Journal Voucher</MenuItem>
