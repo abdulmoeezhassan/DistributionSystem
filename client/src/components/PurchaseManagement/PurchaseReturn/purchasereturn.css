@@ -1,0 +1,94 @@
+body {
+    min-height: 976px; /* Adjust the minimum height as needed */
+      margin: 0;
+    padding: 0;
+    background: #f6f7f8;
+  }
+  .headersales {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    bottom: 850px;
+    margin-left: 140px;
+    overflow: hidden;
+  }
+  
+  .headersales button {
+    margin-left: 1000px;
+    border-radius: 50px;
+    font-size: 22px;
+    background: #009efb;
+    color: white;
+    border-color: transparent;
+    font-size: 1.5rem;
+    width: 160px;
+  }
+  
+  .headersales h5 {
+    font-size: 30px;
+  }
+  
+  .headersales button:hover {
+    opacity: 0.9;
+  }
+  
+  .input {
+    width: 20vh;
+  }
+  
+  .sales {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    bottom: 820px;
+    overflow: hidden;
+    /* Add scrollbars when content overflows */
+    margin-left: 140px;
+  }
+  
+  .search {
+    margin-left: 870px;
+  }
+  
+  .search label {
+    margin-right: 7px;
+  }
+  
+  .sales-1 label {
+    margin-right: 7px;
+  }
+  
+  .enteries {
+    margin-left: 7px;
+  }
+  
+  .saleshead{
+    display: flex;
+    flex-direction: row;
+    margin-left: 280px;
+    position: relative;
+    bottom: 760px;
+    height: 80vh;
+    margin-right: 20px;
+    border: 1px solid rgb(168, 166, 166); 
+    border-radius: 2px;
+    
+  }
+  .saleshead h4{
+    flex-grow: 1;
+    margin: 0 5px; /* Adjust margin for horizontal rule */
+    border: none;
+    height: 1px;
+    margin-top: 10px;
+  }
+  .footer{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    
+  }
+  h5{
+    padding-left: 40px;
+  }
