@@ -27,19 +27,19 @@ const Salesinvoice = () => {
       </div>
       <div>
       <div className="saleshead">
-          <h4 className="salesh">Sr.No</h4>
-          <h4 className="salesh">Document No</h4>
-          <h4 className="salesh">Date</h4>
-          <h4 className="salesh">Type</h4>
-          <h4 className="salesh">Customer</h4>
-          <h4 className="salesh">Net Amount</h4>
-          <h4 className="salesh">Entry User</h4>
-          <h4 className="salesh">Entry Date</h4>
-          <h4 className="salesh">Action</h4>
+          <h4 className="salesh">↑↓Sr.No</h4>
+          <h4 className="salesh">↑↓Document No</h4>
+          <h4 className="salesh">↑↓Date</h4>
+          <h4 className="salesh">↑↓Type</h4>
+          <h4 className="salesh">↑↓Customer</h4>
+          <h4 className="salesh">↑↓Net Amount</h4>
+          <h4 className="salesh">↑↓Entry User</h4>
+          <h4 className="salesh">↑↓Entry Date</h4>
+          <h4 className="salesh">↑↓Action</h4>
           </div>
       </div>
       <div>
-      <p className="footer">©2023 Copyright : <a href="https://www.codeswave.com" target="_blank" rel="noopener noreferrer">codeswave</a></p>
+      <p className="footer">©2023 Copyright : <a href="https://www.codeswave.com" target="_blank" rel="noopener noreferrer" className="foot">codeswave</a></p>
       </div>
       </div>
   );
