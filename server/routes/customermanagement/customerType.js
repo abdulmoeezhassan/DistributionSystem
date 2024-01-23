@@ -15,7 +15,7 @@ router.get('/',async(req,res)=>{
         res.json(getCustomerType.rows);
       }
     }
-    catch(errro){
+    catch(error){
         console.log(error);
     }
 });

@@ -1,13 +1,33 @@
-import React from "react";
+import React,{useState} from "react";
+import AddNew from "../../AddNewComp/AddNew";
 import "./bankpayment.css";
 
 const Salesinvoice = () => {
+  const [showAddNew, setShowAddNew] = useState(false);
+
+  const handleAddNewClick = () => {
+    console.log("Adding New Clicked");
+    setShowAddNew(true);
+  };
+
+  const closeAddclick = () => {
+    setShowAddNew(false);
+  }
+
   return (
     <div>
       <div className="headersales">
         <h5>Bank Payment</h5>
-        <button>+|Add New</button>
+        <button onClick={handleAddNewClick}>+|Add New</button>
       </div>
+      {showAddNew && (
+        <div className="popup-container" >
+          <div className="popup-contenttttt">
+            <AddNew head="Bank Payment" />
+            <button className="bttn222" onClick={closeAddclick}>Close</button>
+          </div>
+        </div>
+      )}
       <div className="sales">
         <div className="sales-1">
           <label>Show</label>

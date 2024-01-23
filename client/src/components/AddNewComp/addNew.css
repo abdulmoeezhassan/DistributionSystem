@@ -1,0 +1,101 @@
+.headd{
+    background: #000;
+    color: white;
+    padding-left: 20px;
+    padding-top: 5px;
+    width: 90vh;
+    height: 5vh;
+    border-radius: 8px;
+}
+hr{
+    width: 90vh;
+    color: rgb(180, 130, 38);
+}
+/* addNew.css */
+/* addNew.css */
+
+.addC {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 14px;
+   
+  }
+  
+  .addC > div {
+    margin-bottom: 20px;
+  
+  }
+  
+  .addC div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin: 0px 10px;
+  }
+  
+  .addC label {
+    width: 150px;
+    text-align: right;
+    margin-bottom: 5px;
+  }
+  
+  .addC input,
+  .addC select {
+    width: 200px;
+    padding: 8px; 
+  }
+  
+  #documentNoo{
+    width: 44vh;
+  }
+  #documentNooo{
+    width:89vh;
+  }
+  .doc{
+   margin-left: -80px;
+  }
+  .addc{
+    margin-top: 25px;
+
+  }
+  .btn1,
+.btn2 {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 12vh;
+    font-size: 22px;
+    height: 5vh;
+}
+
+.btn1 {
+    background-color: red;
+    margin-right: 10px;
+    margin-left: 300px;
+
+    /* Add some spacing between the buttons */
+}
+
+.btn2 {
+    background-color: blue;
+
+}
+
+.btn1:hover {
+    background-color: darkred;
+    transform: scale(1.05);
+    /* Scale up on hover */
+}
+
+.btn2:hover {
+    background-color: darkblue;
+    transform: scale(1.05);
+    /* Scale up on hover */
+}
+
+.bg{
+  width: 80vh;
+}

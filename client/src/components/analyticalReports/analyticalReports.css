@@ -10,6 +10,7 @@
     border-image: repeat;
     box-shadow: 2px 4px 8px rgba(41, 50, 40, 0.1);
     padding-top: 5px;
+    width: 40vh;
 
 }
 
@@ -22,6 +23,7 @@
     height: 20vh;
     box-shadow: 2px 4px 8px rgba(41, 50, 40, 0.1);
     padding-top: 5px;
+    width: 40vh;
 
 }
 
@@ -33,7 +35,7 @@
     height: 53vh;
     box-shadow: 2px 4px 8px rgba(41, 50, 40, 0.1);
     padding-top: 5px;
-
+    width: 40vh;
 }
 
 .card4 {
@@ -44,6 +46,7 @@
     box-shadow: 2px 4px 8px rgba(41, 50, 40, 0.1);
     padding-top: 5px;
     margin-top: 8px;
+    width: 40vh;
 }
 
 .card5 {
@@ -56,7 +59,7 @@
     box-shadow: 2px 4px 8px rgba(41, 50, 40, 0.1);
     padding-top: 5px;
     margin-top: 8px;
-
+    width: 40vh;
 }
 
 .card6 {
@@ -68,7 +71,7 @@
     box-shadow: 2px 4px 8px rgba(41, 50, 40, 0.1);
     padding-top: 5px;
     margin-top: 8px;
-
+    width: 40vh;
 }
 
 .card7 {
@@ -80,6 +83,7 @@
     margin-top: 8px;
     padding-top: 5px;
     height: 47vh;
+    width: 40vh;
 
 }
 
@@ -94,7 +98,7 @@
     padding-top: 5px;
     margin-top: 8px;
     margin-bottom: 10px;
-
+    width: 40vh;
 }
 
 .card9 {
@@ -106,7 +110,7 @@
     box-shadow: 2px 4px 8px rgba(41, 50, 40, 0.1);
     padding-top: 5px;
     margin-top: 8px;
-
+    width: 40vh;
 }
 
 .head1 {
@@ -148,6 +152,7 @@
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 50vh;
   }
  
 .analytical{
@@ -158,4 +163,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column; 
+}
+.hr{
+    width: 43vh;
 }

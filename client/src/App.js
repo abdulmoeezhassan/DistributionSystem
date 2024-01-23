@@ -49,7 +49,9 @@ function App() {
             }
           />
           <Route path='/SaleInvoice' element={<div><MySidebar />
-            <Salesinvoice /></div>} />
+            <Salesinvoice />
+          
+            </div>} />
           <Route path='/SalesEstimate' element={<div>
             <MySidebar />
             <SalesEstimate />

@@ -17,8 +17,8 @@ function MySidebar() {
     return (
         <div className="my-sidebar-container">
             <div className={`my-sidebar ${collapsed ? 'collapsed' : 'expanded'}`}>
-
-                <Sidebar collapsed={collapsed}>
+ 
+               <Sidebar collapsed={collapsed}>
                     <div className="toggle-button-container">
                         <button onClick={toggleSidebar} className="toggle-button toggl">
                             <FontAwesomeIcon icon={collapsed ? faList : faList} />
@@ -117,7 +117,7 @@ function MySidebar() {
                         <MenuItem icon={<FontAwesomeIcon icon={faList} />}>Orders</MenuItem>
                     </Menu>
 
-                </Sidebar>
+                </Sidebar> 
             </div>
         </div>
     );

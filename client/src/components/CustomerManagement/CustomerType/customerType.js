@@ -1,13 +1,32 @@
-import React from "react";
+import React,{useState} from "react";
+import DesComp from './../../DescriptionComp/DesComp';
 import "./customerType.css";
 
 const Salesinvoice = () => {
+  const [showAddNew, setShowAddNew] = useState(false);
+
+  const handleAddNewClick = () => {
+    console.log("Adding New Clicked");
+    setShowAddNew(true);
+  };
+
+  const closeAddclick = () => {
+    setShowAddNew(false);
+  }
   return (
     <div>
       <div className="headersales">
         <h5>Customer Type</h5>
-        <button>+|Add New</button>
+        <button onClick={handleAddNewClick}>+|Add New</button>
       </div>
+      {showAddNew && (
+        <div className="popup-container" >
+          <div className="popup-contentt">
+            <DesComp head="Customer Type" />
+            <button className="bttn2" onClick={closeAddclick}>Close</button>
+          </div>
+        </div>
+      )}
       <div className="sales">
         <div className="sales-1">
           <label>Show</label>
