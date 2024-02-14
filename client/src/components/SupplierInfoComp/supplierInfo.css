@@ -75,6 +75,8 @@ hr{
     background-color: red;
     margin-right: 10px;
     margin-left: 300px;
+    position: relative;
+    top: 18px;
 
     /* Add some spacing between the buttons */
 }
@@ -112,4 +114,7 @@ hr{
     padding: 5px 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+  }
+  .inp{
+    width: 10px;
   }

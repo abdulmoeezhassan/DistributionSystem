@@ -8,8 +8,22 @@ router.use(express.json());
 // GET API FOR SALES_INVOICE
 router.get("/", async (req, res) => {
     try {
-        const sales = await pool.query('SELECT * FROM Sales_Invoice WHERE "is_deleted"=false');
-        if (sales.rows.length === 0) {
+        const sales = await pool.query(`
+        SELECT
+          id,
+          Document_No ,
+          Document_DATE ,
+          Document_BASE ,
+          BASE_REF_NO ,
+          Customer ,
+          Grand_Total,
+          Entry_User ,
+          Entry_Date
+        FROM
+        Sales_Invoice
+        WHERE
+        "is_deleted"=false
+      `); if (sales.rows.length === 0) {
             console.log("No Sales Invoices to show");
             res.json([]);
         } else {
@@ -21,12 +35,84 @@ router.get("/", async (req, res) => {
     }
 });
 
+//GET Data With the id
+router.get("/:id", async (req, res) => {
+    const {id}=req.params;
+    try {
+        const sales = await pool.query(`
+        SELECT
+        Document_No,
+        Document_DATE,
+        Document_BASE,
+        BASE_REF_NO,
+        Salesman,
+        Flat_Tax,
+        Base_Currency,
+        Currency,
+        Flat_Tax_Amount,
+        Total_Amount,
+        Flat_Discount_Amount,
+        Customer,
+        Grand_Total,
+        Entry_User,
+        Entry_Date,
+        Remarks
+        FROM
+        Sales_Invoice
+        WHERE
+        "is_deleted"=false AND id=$1
+      `,[id]); if (sales.rows.length === 0) {
+            console.log("No Sales Invoices to show");
+            res.json([]);
+        } else {
+            res.json(sales.rows);
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "An error occurred while fetching invoices" });
+    }
+});
 // POST API FOR SALES_INVOICE
 router.post('/', async (req, res) => {
-    const { Document_No, DATE, BASE, BASE_REF_NO, Customer, Net_Amount, Entry_User, Entry_Date, Status } = req.body;
+    const { Document_No,
+        Document_DATE,
+        Document_BASE,
+        BASE_REF_NO,
+        Salesman,
+        Flat_Tax,
+        Base_Currency,
+        Currency,
+        Flat_Tax_Amount,
+        Total_Amount,
+        Flat_Discount_Amount,
+        Customer,
+        Grand_Total,
+        Entry_User,
+        Entry_Date,
+        Remarks
+    } = req.body;
     try {
-        const create = await pool.query("INSERT INTO Sales_Invoice(Document_No, DATE, BASE, BASE_REF_NO, Customer, Net_Amount, Entry_User, Entry_Date, Status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
-            [Document_No, DATE, BASE, BASE_REF_NO, Customer, Net_Amount, Entry_User, Entry_Date, Status]);
+        const create = await pool.query(
+            "INSERT INTO Sales_Invoice(Document_No, Document_DATE, Document_BASE, BASE_REF_NO, Salesman, Flat_Tax, Base_Currency, Currency,  Flat_Tax_Amount, Total_Amount, Flat_Discount_Amount, Customer, Grand_Total, Entry_User, Entry_Date, Remarks) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16) RETURNING *",
+            [
+                Document_No,
+                Document_DATE,
+                Document_BASE,
+                BASE_REF_NO,
+                Salesman,
+                Flat_Tax,
+                Base_Currency,
+                Currency,
+                Flat_Tax_Amount,
+                Total_Amount,
+                Flat_Discount_Amount,
+                Customer,
+                Grand_Total,
+                Entry_User,
+                Entry_Date,
+                Remarks
+            ]
+        );
 
         console.log("Invoice created successfully");
         res.json(create.rows[0]);
@@ -39,9 +125,40 @@ router.post('/', async (req, res) => {
 // PUT API FOR SALES_INVOICE
 router.put('/:id', async (req, res) => {
     const { id } = req.params;
-    const { Document_No, DATE, BASE, BASE_REF_NO, Customer, Net_Amount, Entry_User, Entry_Date, Status } = req.body;
+    const {  Document_No,
+        Document_DATE,
+        Document_BASE,
+        BASE_REF_NO,
+        Salesman,
+        Flat_Tax,
+        Base_Currency,
+        Currency,
+        Flat_Tax_Amount,
+        Total_Amount,
+        Flat_Discount_Amount,
+        Customer,
+        Grand_Total,
+        Entry_User,
+        Entry_Date,
+        Remarks } = req.body;
     try {
-        const update = await pool.query("UPDATE Sales_Invoice SET Document_No=$1, DATE=$2, BASE=$3, BASE_REF_NO=$4, Customer=$5, Net_Amount=$6, Entry_User=$7, Entry_Date=$8, Status=$9 WHERE id=$10 AND is_deleted=false", [Document_No, DATE, BASE, BASE_REF_NO, Customer, Net_Amount, Entry_User, Entry_Date, Status, id]);
+        const update = await pool.query("UPDATE Sales_Invoice SET Document_No=$1, Document_DATE=$2, Document_BASE=$3, BASE_REF_NO=$4,Salesman=$5,Flat_Tax=$6,Base_Currency=$7,Currency=$8,Flat_Tax_Amount=$9,Total_Amount=$10, Flat_Discount_Amount=$11, Customer=$12, Grand_Total=$13, Entry_User=$14, Entry_Date=$15,Remarks=$16 WHERE id=$17 AND is_deleted=false", [ Document_No,
+            Document_DATE,
+            Document_BASE,
+            BASE_REF_NO,
+            Salesman,
+            Flat_Tax,
+            Base_Currency,
+            Currency,
+            Flat_Tax_Amount,
+            Total_Amount,
+            Flat_Discount_Amount,
+            Customer,
+            Grand_Total,
+            Entry_User,
+            Entry_Date,
+            Remarks,
+             id]);
 
         if (update.rowCount === 0) {
             console.error("Error in updating Invoice");

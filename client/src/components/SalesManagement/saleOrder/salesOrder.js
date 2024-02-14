@@ -1,16 +1,63 @@
-import React,{useState} from "react";
+import React, { useState, useEffect } from "react";
 import "./salesOrder.css";
+import axios from "axios";
 import AddNew from "../../AddNewComp/AddNew";
+import EditBtn from "../../../assets/edit-button.png";
+import DeleteBtn from "../../../assets/trash-can.png";
+import PrintBtn from "../../../assets/print.png";
 
 const Salesinvoice = () => {
   const [showAddNew, setShowAddNew] = useState(false);
+  const [getData, setData] = useState([]);
+  const [id,SetEditid]=useState(null);
+  
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/SalesOrderInovice");
+        if (response) {
+          console.log("Data fetched Successfully");
+          setData(response.data); // Update state with fetched data
+          console.log(response);
+        } else {
+          console.log("Error in fetching data");
+        }
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  const handleDelete = async(id) => {
+    console.log("item id",id);
+    try {
+      const response = await axios.delete(`http://localhost:4000/SalesOrderInovice/${id}`);
+      if (response.status === 200) {
+        alert("Deleted Successfully");
+      } else {
+        console.error('Failed to delete item');
+      }
+    } catch (error) {
+      console.error('Error deleting item:', error);
+    }
+  }
+  
+const handlePrint = (id) => {
+
+  }
+  const handleEditclick = (id) => {
+    SetEditid(id);
+    console.log("ID",id);
+    handleAddNewClick();
+  }
   const handleAddNewClick = () => {
     console.log("Adding New Clicked");
     setShowAddNew(true);
   };
 
-  const closeAddclick=()=>{
+  const closeAddclick = () => {
     setShowAddNew(false);
   }
   return (
@@ -22,7 +69,7 @@ const Salesinvoice = () => {
       {showAddNew && (
         <div className="popup-container" >
           <div className="popup-contenttt">
-            <AddNew head="Sales Order"/>
+            <AddNew head="Sales Order" apiendpoint="http://localhost:4000/SalesOrderInovice" id={id}/>
             <button className="btttn2" onClick={closeAddclick}>Close</button>
           </div>
         </div>
@@ -43,25 +90,54 @@ const Salesinvoice = () => {
           <input type="text" placeholder="Search here" className="input" />
         </div>
       </div>
-      <div>
-      <div className="saleshead">
-          <h4 className="salesh">↑↓Sr.No</h4>
-          <h4 className="salesh">↑↓Document No</h4>
-          <h4 className="salesh">↑↓Date</h4>
-          <h4 className="salesh">↑↓Base</h4>
-          <h4 className="salesh">↑↓Base Ref No</h4>
-          <h4 className="salesh">↑↓Customer</h4>
-          <h4 className="salesh">↑↓Net Amount</h4>
-          <h4 className="salesh">↑↓Entry User</h4>
-          <h4 className="salesh">↑↓Entry Date</h4>
-          <h4 className="salesh">↑↓Status</h4>
-          <h4 className="salesh">↑↓Action</h4>
-          </div>
+      <div className="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>↑↓Sr.No</th>
+              <th>↑↓Document No</th>
+              <th>↑↓Date</th>
+              <th>↑↓Document BASE</th>
+              <th>↑↓Base Ref No</th>
+              <th>↑↓Customer</th>
+              <th>↑↓Net Amount</th>
+              <th>↑↓Entry User</th>
+              <th>↑↓Entry Date</th>
+              <th>↑↓Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {getData.length > 0 ? (
+              getData.map((item, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{item.document_no}</td>
+                  <td>{item.document_date}</td>
+                  <td>{item.document_base}</td>
+                  <td>{item.base_ref_no}</td>
+                  <td>{item.customer}</td>
+                  <td>{item.grand_total}</td>
+                  <td>{item.entry_user}</td>
+                  <td>{item.entry_date}</td>
+                  <td><img src={DeleteBtn} alt="Delete Button" className="bbttn1" onClick={() => handleDelete(item.id)} />
+                    <img src={EditBtn}  alt="Edit Button" className="bbttn2" onClick={() => handleEditclick(item.id)}/>
+                    <img  src={PrintBtn} alt="Print Button" className="bbttn3" onClick={() => handlePrint(item.id)}/></td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="10" className="data">No data available</td>
+              </tr>
+            )}
+
+          </tbody>
+
+        </table>
       </div>
       <div>
-      <p className="footer">©2023 Copyright : <a href="https://www.codeswave.com" target="_blank" rel="noopener noreferrer" className="foot">codeswave</a></p>
+        <p className="footer">©2023 Copyright : <a href="https://www.codeswave.com" target="_blank" rel="noopener noreferrer" className="foot">codeswave</a></p>
       </div>
-      </div>
+    </div>
   );
 }
 

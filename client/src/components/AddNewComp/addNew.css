@@ -45,9 +45,7 @@ hr{
     padding: 8px; 
   }
   
-  #documentNoo{
-    width: 44vh;
-  }
+
   #documentNooo{
     width:89vh;
   }
@@ -58,9 +56,9 @@ hr{
     margin-top: 25px;
 
   }
-  .btn1,
-.btn2 {
-    padding: 10px 20px;
+  .bttn1,
+.bttn2 {
+    padding: 10px 30px;
     border: none;
     border-radius: 20px;
     color: #fff;
@@ -69,9 +67,12 @@ hr{
     width: 12vh;
     font-size: 22px;
     height: 5vh;
+    position: relative;
+    top: 2.6px;
+    right: 38px;
 }
 
-.btn1 {
+.bttn1 {
     background-color: red;
     margin-right: 10px;
     margin-left: 300px;
@@ -84,7 +85,7 @@ hr{
 
 }
 
-.btn1:hover {
+.bttn1:hover {
     background-color: darkred;
     transform: scale(1.05);
     /* Scale up on hover */

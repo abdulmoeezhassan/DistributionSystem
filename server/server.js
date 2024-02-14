@@ -1,12 +1,16 @@
 const express=require('express');
-const pool = require('./models/model.js');
+const cors = require('cors');
+//const pool = require('./models/model.js');
 const app = express();
 
 app.use(express.json());
 
-const PORT=9000;
+const PORT=4000;
 
-//Sales Invoice...
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
+//Sales Invoice...                                                                                                                      
 const  salesinvoiceRoute=require("./routes/salesmanagement/salesInvoice");
 
 //Sales Return Invoice...

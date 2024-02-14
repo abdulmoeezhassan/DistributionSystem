@@ -140,4 +140,49 @@ body {
     transform: scale(1.05);
     /* Scale up on hover */
   }
+  .table-container {
+    margin-top: 20px;
+   margin-left: 29vh;
+   position: relative;
+   bottom: 82vh;
+  }
   
+  table {
+    width: 97%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  thead {
+    background-color: #f2f2f2;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tbody tr:hover {
+    background-color: #ddd;
+  }
+  .bbttn1{
+    height: 2.7vh;
+    cursor: pointer;
+    }
+    .bbttn2{
+      margin: 0px 3px;
+      height: 2.5vh;
+    cursor: pointer;
+    }
+    .bbttn3{
+    height: 2.7vh;
+    cursor: pointer;
+    }
+  .data{
+    padding-left: 63vh;
+  }

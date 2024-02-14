@@ -28,7 +28,7 @@ const SupplierInfo = () => {
                         <div>
                             <div className="addC">
                                 <div>
-                                    <label for="documentNo">Supplier Number</label>
+                                    <label for="documentNo">Number</label>
                                     <input type="text" id="documentNo" name="documentNo" readOnly />
                                 </div>
                                 <div>
@@ -36,19 +36,16 @@ const SupplierInfo = () => {
                                     <input type="text" id="documentNo" name="documentNo" readOnly />
                                 </div>
                                 <div>
-                                    <label for="documentNo">Supplier Type</label>
-                                    <select id="documentNo" name="documentNo">
-                                        <option value="autoNumber">Clothing</option>
-                                        <option value="autoNumber">Medicine</option>
-                                    </select>
+                                    <label for="documentNo"> Type</label>
+                                    <input type="text" id="documentNo" name="documentNo"/>
                                 </div>
 
                                 <div>
                                     <label for="documentNo">Code</label>
-                                    <input type="text" id="documentNo" name="documentNo" />
+                                    <input type="text" className="inp" id="documentNo" name="documentNo" />
                                 </div>
 
-                            </div>
+                            </div> 
                             <div className="addC">
                                 <div>
                                     <label for="documentNo">Contact Person</label>
@@ -61,6 +58,10 @@ const SupplierInfo = () => {
                                 <div>
                                     <label for="documentNo">City</label>
                                     <input type="text" id="documentNo" name="documentNo" />
+                                </div>
+                                <div>
+                                    <label for="documentNo">Entry_Date</label>
+                                    <input type="Date" className='inp' id="documentNo" name="documentNo" />
                                 </div>
                             </div>
                             <div className="addC">

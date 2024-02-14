@@ -16,6 +16,10 @@ const AddNew = (props) => {
                         <label for="documentNo" className="fgh">Description*</label>
                         <input type="text" className="documentNooo" name="documentNo" />
                     </div>
+                    <div>
+                        <label for="documentNo" className="fgh">Entry Date</label>
+                        <input type="Date" className="documentNooo" name="documentNo" />
+                    </div>
                 </div>
                 <div>
                     <div className="addC addc">

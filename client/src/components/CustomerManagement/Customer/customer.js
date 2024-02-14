@@ -1,5 +1,5 @@
 import React,{ useState } from "react";
-import AddNew from "../../AddNewComp/AddNew";
+import SupplierInfo from "../../SupplierInfoComp/supplierInfo";
 import "./customer.css";
 
 const Salesinvoice = () => {
@@ -23,7 +23,7 @@ const Salesinvoice = () => {
       {showAddNew && (
         <div className="popup-container" >
           <div className="popup-contentttttt">
-            <AddNew head="Customer Info"/>
+            <SupplierInfo head="Customer Info"/>
             <button className="bttn22" onClick={closeAddclick}>Close</button>
           </div>
         </div>
