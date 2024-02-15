@@ -72,9 +72,9 @@
 
 .btn111 {
     background-color: red;
-    margin-left: 127px;
-
-    /* Add some spacing between the buttons */
+    margin-left: 98px;
+    position: relative;
+    top: 64px;
 }
 
 .btn2 {

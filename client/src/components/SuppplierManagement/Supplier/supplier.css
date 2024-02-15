@@ -131,9 +131,10 @@ body {
     width: 12vh;
     font-size: 20px;
     margin-left: 390px;
+    padding-top: 10px;
     background-color: blue;
     position: relative;
-    bottom: 78px;
+    top:-49px
   }
   .bttn234:hover {
     background-color: darkblue;

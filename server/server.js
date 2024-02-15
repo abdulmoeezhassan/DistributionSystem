@@ -69,6 +69,10 @@ const CustomerType=require('./routes/customermanagement/customerType.js');
 
 const CustomerArea=require('./routes/customermanagement/customerArea.js');
 
+//Sales Area
+
+const SalesArea=require('./routes/customermanagement/salesArea.js')
+
 //Supplier
 
 const Supplier=require('./routes/supppliermanagement/supplier.js');
@@ -142,7 +146,11 @@ app.use('/CustomerType',CustomerType);
 
 //customerArea
 
-app.use('/CustomerArea',CustomerArea);
+app.use('/CustomerArea',CustomerArea);4
+
+//SalesArea
+
+app.use('/SalesArea',SalesArea)
 
 //Supplier
 
