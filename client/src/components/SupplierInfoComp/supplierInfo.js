@@ -15,11 +15,11 @@ const SupplierInfo = (props) => {
         Contact_Person: null,
         Phone: null,
         City: null,
-        Entry_Date: null,
         Address: null,
         Opening_Balance: null,
         Name: null,
         Balance_Type: null,
+        Entry_Date:null,
         Fax: null,
         Web: null,
         Country: null,
@@ -171,8 +171,8 @@ const SupplierInfo = (props) => {
                                     <input type="text" id="documentNo" name="City" value={postData.City || ''} onChange={handleChange}/>
                                 </div>
                                 <div>
-                                    <label for="documentNo">Entry_Date</label>
-                                    <input type="Date" className='inp' id="documentNo" name="Entry_Date" value={postData.Entry_Date || ''} onChange={handleChange}/>
+                                    <label for="documentNo">Entry Date</label>
+                                    <input type="date" id="documentNo" name="Entry_Date" value={postData.Entry_Date || ''} onChange={handleChange}/>
                                 </div>
                             </div>
                             <div className="addC">
@@ -188,6 +188,7 @@ const SupplierInfo = (props) => {
                                     <label for="documentNo">Name*</label>
                                     <input type="text" id="documentNo" name="Name" value={postData.Name || ''} onChange={handleChange}/>
                                 </div>
+                              
                             </div>
                             <div className="addC">
                                 <label>Balance Type</label>
@@ -203,12 +204,13 @@ const SupplierInfo = (props) => {
                                         </li>
                                     </ul>
                                 </div>
+                               
                             </div>
-                            {/* <div>
+                            <div>
                                 <div className="addC addc">
                                     <button className="btn1">Save</button>
                                 </div>
-                            </div> */}
+                            </div>
                         </div>
                     </Card.Text>
                 )}

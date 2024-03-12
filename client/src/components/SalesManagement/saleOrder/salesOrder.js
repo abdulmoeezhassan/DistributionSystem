@@ -74,7 +74,7 @@ const handlePrint = (id) => {
           </div>
         </div>
       )}
-      <div className="sales">
+      {/* <div className="sales">
         <div className="sales-1">
           <label>Show</label>
           <select className="input">
@@ -89,7 +89,7 @@ const handlePrint = (id) => {
           <label>Search:</label>
           <input type="text" placeholder="Search here" className="input" />
         </div>
-      </div>
+      </div> */}
       <div className="table-container">
         <table>
           <thead>

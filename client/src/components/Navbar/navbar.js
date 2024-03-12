@@ -1,21 +1,19 @@
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
+import React from 'react';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './navbar.css';
+import UserBtn from "../../assets/user.jpg";
 
 function MyNavbar() {
     return (
-        <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
-            <Container className='nav-bar'>
-                <Navbar.Brand href="#home" className='title'>Connect<br></br>Distribution</Navbar.Brand>
-                <NavDropdown title="PrimeCare Pharma" id="collasible-nav-dropdown" className='care'>
-                    <NavDropdown.Item href="#action/3.1">Change Password</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
+       <div className='care navbar-fixed'>
+                <img src={UserBtn} alt="User" className="user-image" width='24px'/>
+                {/* <h3 className='head999'>ZBL PHARMA</h3> */}
+        <NavDropdown title="ZBL Pharma"  id="collasible-nav-dropdown" className='logout'>
+                    <NavDropdown.Item href="/" >
                         LogOut
                     </NavDropdown.Item>
                 </NavDropdown>
-            </Container>
-        </Navbar>
+        </div>
     );
 }
 

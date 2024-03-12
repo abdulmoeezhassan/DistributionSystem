@@ -1,7 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AnalyticalReports from './components/analyticalReports/analyticalReports';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './components/Login/login.js';
 import MySidebar from './components/sidebar/sidebar';
+import MyNavbar from './components/Navbar/navbar.js';
 import Salesinvoice from './components/SalesManagement/saleinvoice/saleInvoice';
 import SalesEstimate from './components/SalesManagement/saleestimate/salesEstimate';
 import SalesOrder from './components/SalesManagement/saleOrder/salesOrder';
@@ -36,8 +38,14 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<div>
+        <Route path="/" element={
+          <div>
+            <Login/>
+          </div>
+        } />
+          <Route path='/DashBoard' element={<div>
             <MySidebar />
+            <MyNavbar/>
           </div>} />
           <Route
             path='/AnalyticalReports'
@@ -45,116 +53,144 @@ function App() {
               <div className="app-container">
                 <MySidebar />
                 <AnalyticalReports />
+                <MyNavbar/>
               </div>
             }
           />
           <Route path='/SaleInvoice' element={<div><MySidebar />
             <Salesinvoice />
-          
+            <MyNavbar/>
             </div>} />
           <Route path='/SalesEstimate' element={<div>
             <MySidebar />
             <SalesEstimate />
+            <MyNavbar/>
+
           </div>} />
           <Route path='/SalesOrder' element={<div>
             <MySidebar />
             <SalesOrder />
+            <MyNavbar/>
           </div>} />
           <Route path='/SalesQuotation' element={<div>
             <MySidebar />
             <SalesQuotation />
+            <MyNavbar/>
           </div>} />
           <Route path='/SalesReturn' element={<div>
             <MySidebar />
             <SalesReturn />
+            <MyNavbar/>
           </div>} />
           <Route path='/PurchaseReturn' element={<div>
             <MySidebar />
             <PurchaseReturn />
+            <MyNavbar/>
           </div>} />
           <Route path='/PurchaseOrder' element={<div>
             <MySidebar />
             <PurchaseOrder />
+            <MyNavbar/>
           </div>} />
           <Route path='/PurchaseInvoice' element={<div>
             <MySidebar />
             <PurchaseInvoice />
+            <MyNavbar/>
           </div>} />
           <Route path='/BankPayment' element={<div>
             <MySidebar />
             <BankPayment />
+            <MyNavbar/>
           </div>} />
           <Route path='/CashPayment' element={<div>
             <MySidebar />
             <CashPayment />
+            <MyNavbar/>
           </div>} />
           <Route path='/BankReceipt' element={<div>
             <MySidebar />
             <BankReceipt />
+            <MyNavbar/>
           </div>} />
           <Route path='/CashReceipt' element={<div>
             <MySidebar />
             <CashReceipt />
+            <MyNavbar/>
           </div>} />
           <Route path='/JournalVoucher' element={<div>
             <MySidebar />
             <JournalVoucher />
+            <MyNavbar/>
           </div>} />
           <Route path='/UnpostedVoucher' element={<div>
             <MySidebar />
             <UnpostedVoucher />
+            <MyNavbar/>
           </div>} />
           <Route path='/UnReconciledVoucher' element={<div>
             <MySidebar />
             < UnReconciled />
+            <MyNavbar/>
           </div>} />
           <Route path='/Customer' element={<div>
             <MySidebar />
             < Customer/>
+            <MyNavbar/>
           </div>} />
           <Route path='/CustomerArea' element={<div>
             <MySidebar />
             < CustomerArea/>
+            <MyNavbar/>
           </div>} />
           <Route path='/CustomerType' element={<div>
             <MySidebar />
             < CustomerType/>
+            <MyNavbar/>
           </div>} />
           <Route path='/SalesArea' element={<div>
             <MySidebar />
             < SalesArea/>
+            <MyNavbar/>
           </div>} />
           <Route path='/Supplier' element={<div>
             <MySidebar />
             < Sales/>
+            <MyNavbar/>
           </div>} />
           <Route path='/SupplierType' element={<div>
             <MySidebar />
             < SupplierType/>
+            <MyNavbar/>
           </div>} />
           <Route path='/Brand' element={<div>
             <MySidebar />
             < Brand/>
+            <MyNavbar/>
           </div>} />
           <Route path='/Category' element={<div>
             <MySidebar />
             < Category/>
+            <MyNavbar/>
           </div>} />
           <Route path='/Manufacturer' element={<div>
             <MySidebar />
             <Manufacturer/>
+            <MyNavbar/>
           </div>} />
           <Route path='/Packing' element={<div>
             <MySidebar />
             < Packing/>
+            <MyNavbar/>
           </div>} />
           <Route path='/Product' element={<div>
             <MySidebar />
             < Product/>
+            <MyNavbar/>
           </div>} />
           <Route path='/Type' element={<div>
             <MySidebar />
             < Type/>
+            <MyNavbar/>
           </div>} />
         </Routes>
       </BrowserRouter>

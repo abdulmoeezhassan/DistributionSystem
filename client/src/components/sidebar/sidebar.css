@@ -32,6 +32,10 @@
     width: 250px; /* Set the desired width */
     overflow: x; /* Hide the content that exceeds the width */
     height: 100vh;
+    position: relative;
+    top:5.9vh;
+    z-index: 1000; 
+    overflow-y: auto;
   }
 .analy{
   text-decoration: none;

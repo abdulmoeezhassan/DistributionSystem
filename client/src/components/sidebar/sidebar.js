@@ -18,14 +18,16 @@ function MySidebar() {
         <div className="my-sidebar-container">
             <div className={`my-sidebar ${collapsed ? 'collapsed' : 'expanded'}`}>
  
-               <Sidebar collapsed={collapsed}>
+               <Sidebar>
                     <div className="toggle-button-container">
                         <button onClick={toggleSidebar} className="toggle-button toggl">
                             <FontAwesomeIcon icon={collapsed ? faList : faList} />
                         </button>
                     </div>
                     <Menu iconShape="square">
-                        <MenuItem icon={<FontAwesomeIcon icon={faGem} />}>Dashboard</MenuItem>
+                        <Link to='/DashBoard' className='analy analyy'>
+                         <MenuItem icon={<FontAwesomeIcon icon={faGem} />}>Dashboard</MenuItem>
+                       </Link>
                         <Link to="/AnalyticalReports" className='analy analyy'>
                             <MenuItem >Analytical Reports</MenuItem>
                         </Link>

@@ -62,7 +62,7 @@ const Salesinvoice = () => {
   }
 
   return (
-    <div>
+    <div className="headSales">
       <div className="headersales">
         <h5>Sales Invoice</h5>
         <button onClick={handleAddNewClick}>+|Add New</button>
@@ -77,7 +77,7 @@ const Salesinvoice = () => {
         </div>
       )}
 
-      <div className="sales">
+      {/* <div className="sales">
         <div className="sales-1">
           <label>Show</label>
           <select className="input">
@@ -92,7 +92,7 @@ const Salesinvoice = () => {
           <label>Search:</label>
           <input type="text" placeholder="Search here" className="input" />
         </div>
-      </div>
+      </div> */}
 
       <div className="table-container">
         <table>

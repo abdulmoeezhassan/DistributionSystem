@@ -20,6 +20,22 @@ router.get('/',async(req,res)=>{
     }
 });
 
+router.get('/:id',async(req,res)=>{
+  try{
+    const getCustomerType=await pool.query('SELECT * FROM Packing WHERE is_deleted=false');
+    if(getCustomerType.rows.length===0){
+      console.log("Nothing to show");
+      res.json([]);
+    }
+    else{
+      res.json(getCustomerType.rows);
+    }
+  }
+  catch(errro){
+      console.log(error);
+  }
+});
+
 router.post('/',async(req,res)=>{
     const {Description,Entry_Date}=req.body;
     try{

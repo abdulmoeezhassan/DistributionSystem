@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1b81d4;
+}
+
+.Login-Page {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: relative;
+    top: 28vh;
+}
+
+.Login-Page h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.Login-Page label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.Login-Page input[type="text"],
+.Login-Page input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.Login-Page input[type="text"]:focus,
+.Login-Page input[type="password"]:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.Login-Page .error {
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+.Login-Page button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.Login-Page button:hover {
+    background-color: #0056b3;
+}

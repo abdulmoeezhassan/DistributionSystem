@@ -2,6 +2,7 @@ const express=require('express');
 const cors = require('cors');
 //const pool = require('./models/model.js');
 const app = express();
+const verifyToken=require('./routes/Login/verifyToken.js');
 
 app.use(express.json());
 
@@ -10,6 +11,13 @@ const PORT=4000;
 app.use(cors({
     origin: 'http://localhost:3000'
 }));
+
+//Login
+const Login=require("./routes/Login/login.js");
+
+//Register
+const Register=require("./routes/Register/Register.js");
+
 //Sales Invoice...                                                                                                                      
 const  salesinvoiceRoute=require("./routes/salesmanagement/salesInvoice");
 
@@ -92,8 +100,27 @@ const Type=require('./routes/Productmanagement/product.js');
 //Category.......
 
 const Category=require('./routes/Productmanagement/category.js');
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//Cash Payment
+
+const CashPayment=require("./routes/voucherManagement/CashPayment.js");
+
+//Bank Reciept
+const BankRecipt=require("./routes/voucherManagement/BankRecipt.js");
+
+//UnPostedvoucher
+const UnPostedvoucher=require("./routes/voucherManagement/unPostedVoucher.js");
+
+//UnReaconciledVoucher
+const unreconciledvoucher=require("./routes/voucherManagement/UnReconicledVocher.js");
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Login
+
+app.use('/Login',Login);
+
+//Register
+
+app.use('/Register',Register);
 //Sales Invoice...
 app.use('/salesInvoice',salesinvoiceRoute);
 
@@ -171,6 +198,23 @@ app.use('/Type',Type);
 //Category.....
 
 app.use('/Category',Category);
+
+//BankReceipt
+
+app.use('/BankReceipt',BankRecipt);
+
+//CashPayment
+
+app.use('/CashPayment',CashPayment);
+
+//UnreconVocher
+
+app.use('/UnRecVocher',unreconciledvoucher);
+
+//UnPostedVocher
+
+app.use('/UnPostedvocher',unPostedVoucher);
+
 //Server...
 
 app.listen(PORT,()=>{

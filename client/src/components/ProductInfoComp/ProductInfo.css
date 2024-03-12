@@ -45,7 +45,9 @@ hr{
     padding: 8px; 
   }
   
-
+  #documentNoo{
+    width: 44vh;
+  }
   #documentNooo{
     width:89vh;
   }
@@ -56,9 +58,9 @@ hr{
     margin-top: 25px;
 
   }
-  .bttn1,
-.bttn2 {
-    padding: 10px 30px;
+  .btn121,
+.btn2 {
+    padding: 10px 20px;
     border: none;
     border-radius: 20px;
     color: #fff;
@@ -67,15 +69,15 @@ hr{
     width: 12vh;
     font-size: 22px;
     height: 5vh;
-    position: relative;
-    top: 2.6px;
-    right: 38px;
 }
 
-.bttn1 {
+.btn121 {
     background-color: red;
     margin-right: 10px;
-    margin-left: 300px;
+    margin-left: 430px;
+    position: relative;
+    top: 31px;
+    margin-bottom: 37px;
 
     /* Add some spacing between the buttons */
 }
@@ -85,7 +87,7 @@ hr{
 
 }
 
-.bttn1:hover {
+.btn121:hover {
     background-color: darkred;
     transform: scale(1.05);
     /* Scale up on hover */
@@ -100,16 +102,29 @@ hr{
 .bg{
   width: 80vh;
 }
-.addProd{
-  margin-top: 32px;
-  height: 4vh;
-  width: 12vh;
-  border-radius: 50px;
-  border:1px solid #4ab657;
-  color: white;
-  background-color:#4ab657;
-}
+.addC ul {
+    list-style-type: none;
+    padding: 0;
+  }
 
-.addProd:hover{
-  background-color: #10d828;
-}
+  /* Style for radio buttons */
+  .bullet-button {
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .inp{
+    width: 10px;
+  }
+  .cardbody{
+    width: 100vh;
+  }
+ .note{
+    color: red;
+ }
+ .chosebtn{
+    border-radius: 3px solid black;
+ }

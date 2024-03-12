@@ -4,6 +4,10 @@ import './addNew.css';
 
 
 const AddNew = (props) => {
+    const[show,setshow]=useState(false);
+    const handleshow=()=>{
+        setshow(true);
+    }
     const [postData, setPostData] = useState({
 
         Base_Currency: null,
@@ -143,6 +147,15 @@ const AddNew = (props) => {
                         <label htmlFor="salesman">Salesman*</label>
                         <input type="text   " id="salesman" name="Salesman" value={postData.Salesman ||""} onChange={handleChange} />
                     </div>
+                    <div>
+                        <button className="addProd" onClick={handleshow}>Add Products</button>
+                        {show&&(
+                            <div>
+                                
+
+                            </div>
+                        )}
+                    </div>
 
                 </div>
                 <div className="addC">
@@ -187,7 +200,7 @@ const AddNew = (props) => {
                 </div>
                 <div className="addC">
                     <div>
-                        <label htmlfor="remarks" className="doc">Remarks</label>
+                        <label htmlfor="remarks" className="doc">Title</label>
                         <input type="text" id="documentNooo" name="Remarks" value={postData.Remarks ||""} onChange={handleChange} />
                     </div>
                 </div>

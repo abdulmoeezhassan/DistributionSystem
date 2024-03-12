@@ -193,13 +193,21 @@ const createJournalVoucherTableQuery= `
 CREATE TABLE IF NOT EXISTS Journal_Voucher(
   id SERIAL PRIMARY KEY,
   Document_No VARCHAR(500),
-  DATE VARCHAR(200),
-  Title VARCHAR(200),
-  Type VARCHAR(200),
+  Document_DATE VARCHAR(200),
+  Document_BASE VARCHAR(200),
+  BASE_REF_NO VARCHAR(200),
+  Salesman VARCHAR(200),
+  Flat_Tax VARCHAR(200),
+  Base_Currency VARCHAR(200),
   Currency VARCHAR(200),
+  Flat_Tax_Amount VARCHAR(200),
   Total_Amount VARCHAR(200),
+  Flat_Discount_Amount VARCHAR(200),
+  Customer VARCHAR(300),
+  Grand_Total VARCHAR(300),
   Entry_User VARCHAR(300),
   Entry_Date VARCHAR(300),
+  Remarks VARCHAR(500),
   "is_deleted" boolean DEFAULT false
 )
 `;
@@ -207,14 +215,21 @@ const createBankPayementTableQuery= `
 CREATE TABLE IF NOT EXISTS Bank_Payment(
   id SERIAL PRIMARY KEY,
   Document_No VARCHAR(500),
-  DATE VARCHAR(200),
-  BASE VARCHAR(200),
+  Document_DATE VARCHAR(200),
+  Document_BASE VARCHAR(200),
   BASE_REF_NO VARCHAR(200),
+  Salesman VARCHAR(200),
+  Flat_Tax VARCHAR(200),
+  Base_Currency VARCHAR(200),
+  Currency VARCHAR(200),
+  Flat_Tax_Amount VARCHAR(200),
+  Total_Amount VARCHAR(200),
+  Flat_Discount_Amount VARCHAR(200),
   Customer VARCHAR(300),
-  Net_Amount VARCHAR(300),
+  Grand_Total VARCHAR(300),
   Entry_User VARCHAR(300),
   Entry_Date VARCHAR(300),
-  Status VARCHAR(100),
+  Remarks VARCHAR(500),
   "is_deleted" boolean DEFAULT false
 )
 `;
@@ -222,14 +237,21 @@ const createCashPayementTableQuery= `
 CREATE TABLE IF NOT EXISTS Cash_Payment(
   id SERIAL PRIMARY KEY,
   Document_No VARCHAR(500),
-  DATE VARCHAR(200),
-  BASE VARCHAR(200),
+  Document_DATE VARCHAR(200),
+  Document_BASE VARCHAR(200),
   BASE_REF_NO VARCHAR(200),
+  Salesman VARCHAR(200),
+  Flat_Tax VARCHAR(200),
+  Base_Currency VARCHAR(200),
+  Currency VARCHAR(200),
+  Flat_Tax_Amount VARCHAR(200),
+  Total_Amount VARCHAR(200),
+  Flat_Discount_Amount VARCHAR(200),
   Customer VARCHAR(300),
-  Net_Amount VARCHAR(300),
+  Grand_Total VARCHAR(300),
   Entry_User VARCHAR(300),
   Entry_Date VARCHAR(300),
-  Status VARCHAR(100),
+  Remarks VARCHAR(500),
   "is_deleted" boolean DEFAULT false
 )
 `;
@@ -237,14 +259,21 @@ const createBankReceiptTableQuery= `
 CREATE TABLE IF NOT EXISTS Bank_Recipt(
   id SERIAL PRIMARY KEY,
   Document_No VARCHAR(500),
-  DATE VARCHAR(200),
-  BASE VARCHAR(200),
+  Document_DATE VARCHAR(200),
+  Document_BASE VARCHAR(200),
   BASE_REF_NO VARCHAR(200),
+  Salesman VARCHAR(200),
+  Flat_Tax VARCHAR(200),
+  Base_Currency VARCHAR(200),
+  Currency VARCHAR(200),
+  Flat_Tax_Amount VARCHAR(200),
+  Total_Amount VARCHAR(200),
+  Flat_Discount_Amount VARCHAR(200),
   Customer VARCHAR(300),
-  Net_Amount VARCHAR(300),
+  Grand_Total VARCHAR(300),
   Entry_User VARCHAR(300),
   Entry_Date VARCHAR(300),
-  Status VARCHAR(100),
+  Remarks VARCHAR(500),
   "is_deleted" boolean DEFAULT false
 )
 `;
@@ -252,33 +281,62 @@ const createCashReceiptTableQuery= `
 CREATE TABLE IF NOT EXISTS Cash_Recipt(
   id SERIAL PRIMARY KEY,
   Document_No VARCHAR(500),
-  DATE VARCHAR(200),
-  BASE VARCHAR(200),
-  BASE_REF_NO VARCHAR(200),
-  Customer VARCHAR(300),
-  Net_Amount VARCHAR(300),
-  Entry_User VARCHAR(300),
-  Entry_Date VARCHAR(300),
-  Status VARCHAR(100),
+        Document_DATE VARCHAR(200),
+        Document_BASE VARCHAR(200),
+        BASE_REF_NO VARCHAR(200),
+        Salesman VARCHAR(200),
+        Flat_Tax VARCHAR(200),
+        Base_Currency VARCHAR(200),
+        Currency VARCHAR(200),
+        Flat_Tax_Amount VARCHAR(200),
+        Total_Amount VARCHAR(200),
+        Flat_Discount_Amount VARCHAR(200),
+        Customer VARCHAR(300),
+        Grand_Total VARCHAR(300),
+        Entry_User VARCHAR(300),
+        Entry_Date VARCHAR(300),
+        Remarks VARCHAR(500),
   "is_deleted" boolean DEFAULT false
 )
 `;
 const unpostedvoucher=`CREATE TABLE IF NOT EXISTS un_posted_voucher(
   id SERIAL PRIMARY KEY,
-  Document_No VARCHAR (500),
-  Date VARCHAR(500),
-  type VARCHAR(500),
-  title VARCHAR(500),
-  Amount VARCHAR(500),
+  Document_No VARCHAR(500),
+  Document_DATE VARCHAR(200),
+  Document_BASE VARCHAR(200),
+  BASE_REF_NO VARCHAR(200),
+  Salesman VARCHAR(200),
+  Flat_Tax VARCHAR(200),
+  Base_Currency VARCHAR(200),
+  Currency VARCHAR(200),
+  Flat_Tax_Amount VARCHAR(200),
+  Total_Amount VARCHAR(200),
+  Flat_Discount_Amount VARCHAR(200),
+  Customer VARCHAR(300),
+  Grand_Total VARCHAR(300),
+  Entry_User VARCHAR(300),
+  Entry_Date VARCHAR(300),
+  Remarks VARCHAR(500),
   "is_deleted" boolean DEFAULT false
 )`
 const unreconciledvoucher=`CREATE TABLE IF NOT EXISTS un_reconciled_voucher(
   id SERIAL PRIMARY KEY,
-  Document_No VARCHAR (500),
-  Date VARCHAR(500),
-  type VARCHAR(500),
-  title VARCHAR(500),
-  Amount VARCHAR(500),
+  Document_No VARCHAR(500),
+        Document_DATE VARCHAR(200),
+        Document_BASE VARCHAR(200),
+        BASE_REF_NO VARCHAR(200),
+        Salesman VARCHAR(200),
+        Flat_Tax VARCHAR(200),
+        Base_Currency VARCHAR(200),
+        Currency VARCHAR(200),
+        Flat_Tax_Amount VARCHAR(200),
+        Total_Amount VARCHAR(200),
+        Flat_Discount_Amount VARCHAR(200),
+        Customer VARCHAR(300),
+        Grand_Total VARCHAR(300),
+        Entry_User VARCHAR(300),
+        Entry_Date VARCHAR(300),
+        Remarks VARCHAR(500),
   "is_deleted" boolean DEFAULT false
 )`
 const Customervoucher=`CREATE TABLE IF NOT EXISTS Customer(
@@ -359,15 +417,34 @@ const SupplierType=`CREATE TABLE IF NOT EXISTS SupplierType(
 )`  
 const ProductInfo=`CREATE TABLE IF NOT EXISTS ProductInfo(
   id SERIAL PRIMARY KEY,
-  Number VARCHAR(500),
-  Name VARCHAR(500),
-  Type VARCHAR(500),
-  Category VARCHAR(500),
-  is_service VARCHAR(500),
-  SalePrice_tp VARCHAR(500),
-  Purchase_Price VARCHAR(500),
-  Entry_Date VARCHAR(500),
-  "is_deleted" boolean DEFAULT false
+        Product_Number VARCHAR(500),
+        BarCode VARCHAR(500),
+        Manufacturer VARCHAR(500),
+        Code VARCHAR(500),
+        Description VARCHAR(500),
+        Brand VARCHAR(500),
+        Packing VARCHAR(500),
+        Product_Type VARCHAR(500),
+        Category VARCHAR(500),
+        Re_Order_Level VARCHAR(500) ,
+        Name VARCHAR(500),
+        Danger_Level VARCHAR(500),
+        Sale_Price VARCHAR(500),
+        Least_Price VARCHAR(500),
+        Sale_Dis VARCHAR(500),
+        MR_Price VARCHAR(500),
+        Purchase_Price VARCHAR(500),
+        Purchase_Dis VARCHAR(500),
+        Supplier VARCHAR(500),
+        Rate VARCHAR(500),
+        Quantity VARCHAR(500),
+        Unit_of_Meas VARCHAR(500),
+        Expiry_Date VARCHAR(500),
+        Batch VARCHAR(500),
+        Entry_Date VARCHAR(500),
+        Product_Avail VARCHAR(500),
+        Image BYTEA,
+        "is_deleted" boolean DEFAULT false
 )`  
 const Type=`CREATE TABLE IF NOT EXISTS Type(
   id SERIAL PRIMARY KEY,
@@ -399,6 +476,12 @@ const Manufacturer=`CREATE TABLE IF NOT EXISTS Manufacturer(
   Entry_Date VARCHAR(500),
   "is_deleted" boolean DEFAULT false
 )`  
+const Login=`CREATE TABLE IF NOT EXISTS Login(
+  id SERIAL PRIMARY KEY,
+  UserName VARCHAR(500) NOT NULL,
+  HashedPassword TEXT NOT NULL,
+  "is_deleted" boolean DEFAULT false
+)`
 return Promise.all([
       pool.query(createSalesInvoiceTableQuery),
       pool.query(createSalesReturnInvoiceTableQuery),
@@ -426,7 +509,8 @@ return Promise.all([
       pool.query(Category),
       pool.query(Packing),
       pool.query(Brand),
-      pool.query(Manufacturer)
+      pool.query(Manufacturer),
+      pool.query(Login)
     ]);
   })
   .then(() => {
